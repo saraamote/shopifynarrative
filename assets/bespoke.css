@@ -75,16 +75,20 @@ button[disabled].confirmation, input[type=submit][disabled].confirmation {
 
 
 
-
 /*
 
 header and logo
 
 */
 
-#site-control #logo img {
+#site-control #logo {
 
-  width: 130px;
+  font-family: 'Obsidian A', 'Obsidian B';
+  text-transform: lowercase;
+  vertical-align: baseline;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 58px;
 
 }
 
@@ -767,3 +771,41 @@ media queries
   }
 
 }
+
+
+/*
+
+custom product page with parallax feature
+
+*/
+
+
+
+.bespoke-product-feature:nth-child(odd) .bespoke-article h2,
+.bespoke-product-feature:nth-child(odd) .bespoke-article p {
+
+  text-align: left;
+
+}
+
+.bespoke-product-feature:nth-child(even) .bespoke-article h2,
+.bespoke-product-feature:nth-child(even) .bespoke-article p {
+
+  text-align: right;
+
+}
+
+.bespoke-article h2,
+.bespoke-article p {
+
+  text-align: center;
+
+}
+
+.bespoke-article img {
+
+  width: 100%;
+
+}
+
+
