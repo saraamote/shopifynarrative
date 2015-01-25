@@ -41,7 +41,7 @@ h1 {
 
 #page-content {
 
-  padding: 135px 0;
+  padding: 0;
 
 }
 
@@ -81,6 +81,7 @@ header and logo
 
 */
 
+#bespoke-logo h1,
 #site-control #logo {
 
   font-family: 'Obsidian A', 'Obsidian B';
@@ -94,14 +95,8 @@ header and logo
 
 #site-control {
 
-  background: rgba( 255 , 255 , 255 , 0.5 );
+  background: none;
   padding: 10px 0;
-
-}
-
-#site-control .logo-upper #logo {
-
-  text-transform: uppercase;
 
 }
 
@@ -215,33 +210,24 @@ homepage
 
 */
 
-#bespoke-logo {
+.bespoke-logo {
 
-  position: fixed;
-  width: 120px;
-  top: 50px;
-  right: 5%
+  font-family: 'Obsidian A', 'Obsidian B';
+  text-transform: lowercase;
+  vertical-align: baseline;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 58px;
 
 }
 
 .bespoke.central {
 
-color: rgba( 255 , 255 , 255 , 0.75 );
-letter-spacing: .075em;
-position: absolute;
-line-height: 20px;
-font-size: 20px;
-bottom: 20%;
-left: 5%;
+color: rgba( 0 , 0 , 0 , 0.75 );
+
 
 }
 
-.bespoke.central .home {
-
-  margin: 5px;
-  padding: 0px;
-
-}
 
 .bespoke.central .discover {
 
@@ -292,15 +278,6 @@ pages
   letter-spacing: .075em;
   line-height: 21px;
   font-size: 14px;
-
-}
-
-.bespoke-page-content {
-
-  position: absolute;
-  bottom: 10%;
-  width: 45%;
-  right: 5%;
 
 }
 
@@ -608,55 +585,6 @@ p.note-area label {
 media queries
 
 */
-
-/* home page */
-
-@media screen and (max-width: 880px) {
-
-  .bespoke.central {
-
-    font-size: 18px;
-
-  }
-
-}
-
-@media screen and (max-width: 500px) {
-
-  #bespoke-logo {
-
-    width: 90px;
-    top: 2.5%;
-
-  }
-
-  .bespoke.central {
-
-    background: rgba( 255 , 255 , 255 , 0.80 );
-    letter-spacing: .05em;
-    line-height: 18px;
-    text-align: center;
-    line-height: 16px;
-    padding: 5px 10px;
-    position: fixed;
-    font-size: 14px;
-    color: #000;
-    bottom: 0;
-    right: 0;
-    left: 0;
-
-  }
-
-  .bespoke.central .discover {
-
-    font: 20px / 30px "garamond-premier-pro", serif;
-    border: 1px solid #000;
-    margin: 10px 0 10px 0;
-    color: #000;
-
-  }
-
-}
 
 /* product page */
 

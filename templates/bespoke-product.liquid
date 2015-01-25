@@ -1,3 +1,14 @@
+{% comment %}
+ADDING SHOPIFY'S REVIEWS? LOOK NO FURTHER!
+
+This theme supports the Product Reviews app out of the box.
+https://apps.shopify.com/product-reviews
+
+Change 'false' to 'true' on the line below, to show them.
+{% endcomment %}
+{% assign show_product_reviews = false %}
+
+
 {% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
 <div class="central wide relative" itemscope itemtype="http://schema.org/Product">
   {% if settings.prod_feat_img_beside %}
@@ -180,126 +191,37 @@
     {% endif %}
     {% endif %}
 
+
+
+    {% if show_product_reviews %}
+    <div id="shopify-product-reviews" data-id="{{ product.id }}">{{ product.metafields.spr.reviews }}</div>
+    {% endif %}
   </div>
 </div>
 
 
-<!-- bespoke parallax -->
+{% for article in blogs.product-features.articles %}
 
-<div class="bespoke-parallax">
+<div class="bespoke-product-feature">
 
-  {% for article in blogs.product-features.articles %}
+{% if article.tags contains product.title %}
 
-  {% if article.tags contains product.title %}
+  <div class="bespoke-article">
 
-  <div class="parallax-group">
+    <div class="bespoke-article-title"><h2>{{ article.title }}</h2></div>
 
-    <div class="parallax-layer parallax-layer-back">
+    <div class="bespoke-article-excerpt">{{ article.excerpt }}</div>
 
-      {{ article.content }}
-
-    </div>
-
-    <div class="parallax-group">
-
-      <div class="parallax-layer parallax-layer-base">
-
-        <div class="parallax-title">{{ article.excerpt }}</div>
-
-      </div>
-
-    </div>
+    <div class="bespoke-article-content">{{ article.content }}</div>
 
   </div>
 
-  {% endif %}
-
-  {% endfor %}
-
 </div>
 
-<style>
+{% endif %}
 
+{% endfor %}
 
-  p {
-
-    color: #000;
-    padding: 0;
-    margin: 0;
-
-  }
-
-  .central.wide.relative {
-
-    padding-top: 150px;
-    min-height: 100vh;
-
-  }
-
- .bespoke-parallax {
-
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-    -webkit-perspective: 1px;
-    perspective: 1px;
-    font-size: 20px;
-
-  }
-
-  .parallax-group {
-
-    position: relative;
-    height: 100vw;
-
-  }
-
-  .group:last-of-type {
-
-    height: 50vw;
-
-  }
-
-  .parallax-title {
-
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-
-  }
-
-  .parallax-layer {
-
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    top: 0;
-
-
-  }
-
-  .parallax-layer-back {
-
-    -webkit-transform: translateZ(-1px) scale(2);
-    transform: translateZ(-1px) scale(2);
-
-  }
-
-  .parallax-layer-base {
-
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-
-  }
-
-
-</style>
-
-
-<!-- end bespoke parallax -->
 
 {% if product.available and product.variants.size > 1 %}
 <script>
